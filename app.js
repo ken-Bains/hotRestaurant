@@ -3,7 +3,32 @@ const path = require("path");
 
 var app = express();
 var PORT = process.env.PORT || 3000;
-var allReservations = [];
+var allReservations = [
+    {
+        name: "ken",
+        phone: "408-232-3233",
+        email: "rh@gmail.com",
+        id: "3"
+    },
+    {
+        name: "joe",
+        phone: "4044-232-3233",
+        email: "rdafh@gmail.com",
+        id: "4"
+    },
+    {
+        name: "ksden",
+        phone: "4000-232-3233",
+        email: "rhsdsf@gmail.com",
+        id: "6"
+    },
+    {
+        name: "anndy",
+        phone: "4528-232-3233",
+        email: "rsh@gmail.com",
+        id: "7"
+    }
+];
 
 app.use(express.urlencoded({extended: true}));
 app.use(express.json());
