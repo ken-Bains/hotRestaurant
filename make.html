@@ -1,0 +1,94 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
+        integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+
+    <title>Make Reservation</title>
+</head>
+
+<body>
+    <div class="container">
+        <div class="jumbotron">
+            <h1 class="display-4 text-center">Make Reservation</h1>
+            <hr>
+            <p class="lead text-center">Enter your information below</p>
+            <p class="text-center">
+                <a type="button" href="/waitlist" class="btn btn-primary">View Tables</a>
+                <a type="button" href="/" class="btn btn-light">Home</a>
+            </p>
+        </div>
+
+    </div>
+
+    <div class="container">
+        <div class="card">
+            <div class="card-header">
+                Table Reservation
+            </div>
+            <div class="card-body">
+                <form>
+                    <div class="form-group">
+                        <label for="nameInput">Enter you name</label>
+                        <input type="name" class="form-control" id="nameInput">
+                    </div>
+                    <div class="form-group">
+                        <label for="exampleInputEmail1">Email address</label>
+                        <input type="email" class="form-control" id="exampleInputEmail1">
+                    </div>
+                    <div class="form-group">
+                        <label for="phoneInput">Phone Number:</label>
+                        <input type="text" class="form-control" id="phoneInput">
+                    </div>
+                    <div class="form-group">
+                        <label for="idInput">Unique Id:</label>
+                        <input type="text" class="form-control" id="idInput">
+                    </div>
+                    <button type="submit" id="submitForm" class="btn btn-primary">Submit</button>
+                </form>
+            </div>
+        </div>
+    </div>
+    <div class="container">
+        <a class="btn btn-link" href="/" role="button">API links</a>
+        <a class="btn btn-link" href="#" role="button">API wait list</a>
+    </div>
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js"
+        integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n"
+        crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
+        integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo"
+        crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"
+        integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6"
+        crossorigin="anonymous"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+
+
+    <script>
+        $("#submitForm").on("click", function(e){
+            e.preventDefault();
+            console.log("hello");
+            var customerObj = {
+                name: $("#nameInput").val().trim(),
+                email: $("#exampleInputEmail1").val().trim(),
+                phone: $("#phoneInput").val().trim(),
+                id: $("#idInput").val().trim()
+            };
+
+            $.post("/api/add/new", customerObj).then(function(){
+                console.log("make reservation html console.",customerObj);
+            })
+        });
+    </script>
+</body>
+
+</html>
